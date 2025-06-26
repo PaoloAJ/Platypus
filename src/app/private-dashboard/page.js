@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../lib/supabaseClient";
 
-const PASSCODE = "123456"; // Replace with your secure code
+const PASSCODE = "171717";
 
 export default function PrivateDashboard() {
   const [enteredCode, setEnteredCode] = useState("");

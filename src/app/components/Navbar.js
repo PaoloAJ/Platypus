@@ -28,7 +28,6 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Nav */}
         <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-10 text-md font-medium">
           <Link href="/" className={linkClasses("/")}>
             About
@@ -38,7 +37,6 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Contact Button (Desktop) */}
         <Link
           href="/contact"
           className={`hidden md:inline-block px-4 py-2 rounded shadow font-semibold transition ${
@@ -50,7 +48,6 @@ function Navbar() {
           Get a Quote
         </Link>
 
-        {/* Hamburger Button (Mobile) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-[#0288D1] z-50"
@@ -81,7 +78,6 @@ function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
