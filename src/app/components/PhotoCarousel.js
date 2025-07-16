@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image"; // ✅ import Image
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -11,45 +12,45 @@ const images = [
   {
     src: "/backyard1.jpeg",
     label: "Backyard Cleanup",
-    href: "/services/backyard",
+    href: "/services",
   },
   {
     src: "/backyard2.jpeg",
     label: "Backyard Cleanup",
-    href: "/services/landscaping",
+    href: "/services",
   },
-  { src: "/dock1.jpeg", label: "Dock Restoration", href: "/services/dock" },
-  { src: "/dock2.jpeg", label: "Dock Restoration", href: "/services/dock" },
+  { src: "/dock1.jpeg", label: "Dock Restoration", href: "/services" },
+  { src: "/dock2.jpeg", label: "Dock Restoration", href: "/services" },
   {
     src: "/dock3.jpeg",
     label: "Dock Restoration",
-    href: "/services/environmental",
+    href: "/services",
   },
-  { src: "/dock4.jpeg", label: "Dock Restoration", href: "/services/deck" },
+  { src: "/dock4.jpeg", label: "Dock Restoration", href: "/services" },
   {
     src: "/dock5.jpeg",
     label: "Dock Restoration",
-    href: "/services/waterfront",
+    href: "/services",
   },
   {
     src: "/driveway1.jpeg",
     label: "Driveway Pressure Wash",
-    href: "/services/driveway",
+    href: "/services",
   },
   {
     src: "/driveway2.jpeg",
     label: "Driveway Pressure Wash",
-    href: "/services/driveway",
+    href: "/services",
   },
   {
     src: "/driveway3.jpeg",
     label: "Driveway Pressure Wash",
-    href: "/services/driveway",
+    href: "/services",
   },
   {
     src: "/sidewalk1.jpeg",
     label: "Sidewalk Cleanup",
-    href: "/services/sidewalk",
+    href: "/services",
   },
   { src: "/stairs1.jpeg", label: "Stairway Care", href: "/services/stairs" },
 ];
@@ -71,13 +72,12 @@ export default function PhotoCarousel() {
         {images.map(({ src, label, href }, i) => (
           <SwiperSlide key={i}>
             <div className="relative w-full h-80 overflow-hidden rounded-xl group">
-              <img
+              <Image
                 src={src}
                 alt={label}
-                loading="lazy"
-                decoding="async"
-                fetchPriority="low"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <Link
                 href={href}

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image"; // ✅ Import Image from next/image
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -19,15 +20,20 @@ function Navbar() {
       <nav className="h-36 bg-transparent text-[#0D3B66] px-6 py-4 flex items-center justify-between backdrop-blur-md relative z-50">
         {/* Logo */}
         <div className="flex items-center space-x-2 pl-4">
-          <Link href="private-dashboard">
-            <img
-              src="/logo.png"
-              alt="Platypus Outdoor Logo"
-              className="w-40 h-32 object-fill"
-            />
+          <Link href="/private-dashboard">
+            <div className="relative w-40 h-32">
+              <Image
+                src="/logo.png"
+                alt="Platypus Outdoor Logo"
+                fill
+                priority
+                className="object-fill"
+              />
+            </div>
           </Link>
         </div>
 
+        {/* Desktop Nav */}
         <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-10 text-md font-medium">
           <Link href="/" className={linkClasses("/")}>
             About
@@ -37,6 +43,7 @@ function Navbar() {
           </Link>
         </div>
 
+        {/* Contact Button */}
         <Link
           href="/contact"
           className={`hidden md:inline-block px-4 py-2 rounded shadow font-semibold transition ${
@@ -48,6 +55,7 @@ function Navbar() {
           Get a Quote
         </Link>
 
+        {/* Hamburger (Mobile) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-[#0288D1] z-50"
@@ -78,6 +86,7 @@ function Navbar() {
         </button>
       </nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div

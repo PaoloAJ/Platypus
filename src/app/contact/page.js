@@ -48,7 +48,7 @@ function Contact() {
 
         {submitted ? (
           <p className="text-green-600 text-center font-medium">
-            Thank you! We'll be in touch shortly.
+            Thank you! We&apos;ll be in touch shortly.
           </p>
         ) : (
           <form className="space-y-4" onSubmit={handleSubmit}>

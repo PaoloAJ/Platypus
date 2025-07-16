@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable}bg-[#E0F7FA] antialiased min-h-screen hide-scrollbar`}
+        className={`${dmSans.variable} bg-[#E0F7FA] antialiased min-h-screen hide-scrollbar`}
       >
         <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[#E0F7FA] via-[#B3E5FC] to-[#81D4FA]" />
         <Navbar />
