@@ -38,7 +38,7 @@ export default function PrivateDashboard() {
 
   if (!isAuthed) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#E0F7FA] via-[#B3E5FC] to-[#81D4FA] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-gradient-to-br flex items-center justify-center px-4">
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-2xl rounded-2xl p-8 space-y-6 w-full max-w-sm border-l-8 border-[#00BCD4]"
@@ -66,7 +66,7 @@ export default function PrivateDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#E1F5FE] to-[#B3E5FC] px-6 py-12">
+    <div className="min-h-screen px-6 py-12">
       <h1 className="text-4xl font-extrabold text-center text-[#01579B] mb-10 tracking-tight">
         Submitted Requests
       </h1>

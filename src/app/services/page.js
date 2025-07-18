@@ -72,7 +72,7 @@ const sections = [
 export default function Services() {
   return (
     <section className="relative min-h-screen px-6 py-16 space-y-16 overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#E0F7FA] via-[#B3E5FC] to-[#81D4FA]" />
+      <div className="absolute inset-0 -z-10" />
 
       <motion.h1
         initial={{ opacity: 0, y: 30 }}

@@ -17,11 +17,11 @@ function Navbar() {
 
   return (
     <>
-      <nav className="h-36 bg-transparent text-[#0D3B66] px-6 py-4 flex items-center justify-between backdrop-blur-md relative z-50">
+      <nav className="h-36 bg-transparent px-6 py-4 flex items-center justify-between backdrop-blur-md relative z-50">
         {/* Logo */}
-        <div className="flex items-center space-x-2 pl-4">
+        <div className="w-full flex justify-center md:justify-start items-center pl-0 md:pl-4">
           <Link href="/private-dashboard">
-            <div className="relative w-40 h-32">
+            <div className="relative w-60 h-45 mt-7">
               <Image
                 src="/logo.png"
                 alt="Platypus Outdoor Logo"

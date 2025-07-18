@@ -1,12 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import { DM_Sans } from "next/font/google";
 
-const dmSans = DM_Sans({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["400", "500", "700"],
+  variable: "--font-sora",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata = {
@@ -18,9 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} bg-[#E0F7FA] antialiased min-h-screen hide-scrollbar`}
+        className={`${sora.variable} bg-[#0B132B] antialiased min-h-screen hide-scrollbar`}
       >
-        <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[#E0F7FA] via-[#B3E5FC] to-[#81D4FA]" />
+        {/* Removed gradient background */}
         <Navbar />
         <main>{children}</main>
       </body>
