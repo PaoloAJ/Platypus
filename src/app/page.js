@@ -125,9 +125,9 @@ function Home() {
                 <span className="text-[#00BCD4]">Solutions</span>
               </h1>
               <p className="text-2xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-                Florida's premier eco-friendly waterfront restoration
-                specialists. Restoring natural beauty while protecting our
-                environment.
+                {
+                  "Florida's premier eco-friendly waterfront restoration specialists. Restoring natural beauty while protecting our environment."
+                }
               </p>
 
               <motion.div
@@ -165,8 +165,9 @@ function Home() {
               Our Services
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Comprehensive outdoor maintenance solutions tailored to Florida's
-              unique environment
+              {
+                "Comprehensive outdoor maintenance solutions tailored to Florida's unique environment"
+              }
             </p>
           </motion.div>
 
@@ -400,9 +401,9 @@ function Home() {
               Ready to Transform Your Property?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-              Get a free, no-obligation quote for your outdoor restoration
-              project. We'll work with you to create a customized solution that
-              fits your needs and budget.
+              {
+                "Get a free, no-obligation quote for your outdoor restoration project. We'll work with you to create a customized solution that fits your needs and budget."
+              }
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
