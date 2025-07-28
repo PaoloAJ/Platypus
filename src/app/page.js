@@ -376,7 +376,7 @@ function Home() {
                   ))}
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6 italic">
-                  "{testimonial.text}"
+                  {testimonial.text}
                 </p>
                 <div className="border-t border-gray-700 pt-4">
                   <p className="text-white font-semibold">{testimonial.name}</p>
