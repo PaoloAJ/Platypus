@@ -1,31 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
+import React, { useState } from "react";
 
 const PASSCODE = "171717";
 
 export default function PrivateDashboard() {
   const [enteredCode, setEnteredCode] = useState("");
   const [isAuthed, setIsAuthed] = useState(false);
-  const [requests, setRequests] = useState([]);
-
-  useEffect(() => {
-    if (isAuthed) fetchData();
-  }, [isAuthed]);
-
-  const fetchData = async () => {
-    const { data, error } = await supabase
-      .from("requests")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      alert("Error fetching data");
-    } else {
-      setRequests(data);
-    }
-  };
+  const [requests] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

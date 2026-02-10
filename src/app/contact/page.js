@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { supabase } from "../lib/supabaseClient";
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -26,21 +25,12 @@ function Contact() {
 
     console.log("Form data:", { email, phone, description, address });
 
-    const { data, error } = await supabase
-      .from("requests")
-      .insert([{ email, phone, description, address }]);
-
-    if (error) {
-      console.error("Supabase insert error:", error);
-      alert("Submission failed. Please try again.");
-    } else {
-      console.log("Submission successful:", data);
-      setSubmitted(true);
-    }
+    // Form submission logic removed - add your own backend integration here
+    setSubmitted(true);
   };
 
   return (
-    <div className="h-[calc(100vh-144px)] overflow-hidden flex items-center justify-center bg-gradient-to-r from-[#E0F7FA] via-[#B3E5FC] to-[#81D4FA] px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#E0F7FA] via-[#B3E5FC] to-[#81D4FA] px-4 pt-36 pb-20">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6 space-y-6">
         <h1 className="text-3xl font-bold text-[#01579B] text-center">
           Get a Quote

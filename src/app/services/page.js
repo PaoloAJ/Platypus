@@ -71,16 +71,17 @@ const sections = [
 
 export default function Services() {
   return (
-    <section className="relative min-h-screen px-6 py-16 space-y-16 overflow-hidden">
-      <div className="absolute inset-0 -z-10" />
+    <section className="relative min-h-screen px-6 pt-36 pb-24 space-y-16 overflow-hidden bg-[#0B132B]">
+      {/* Background Effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1A1F3A] to-[#0B132B] opacity-50" />
 
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-bold text-[#0D47A1] text-center tracking-tight drop-shadow-sm"
+        className="text-4xl md:text-5xl font-bold text-white text-center tracking-tight drop-shadow-sm"
       >
-        Our Services
+        Our <span className="text-[#00BCD4]">Services</span>
       </motion.h1>
 
       {sections.map((section, index) => (
@@ -90,18 +91,18 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: index * 0.2 }}
-          className="bg-white/80 border-l-8 border-[#00BCD4] rounded-2xl p-8 shadow-xl backdrop-blur-md"
+          className="bg-[#1A1F3A] border-l-8 border-[#00BCD4] rounded-2xl p-8 shadow-xl border-r border-t border-b border-gray-800"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-[#01579B] mb-6 underline underline-offset-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 underline underline-offset-8 decoration-[#00BCD4]">
             {section.title}
           </h2>
-          <ul className="space-y-6 text-[#0D3B66]">
+          <ul className="space-y-6 text-gray-300">
             {section.items.map((item, idx) => (
               <li key={idx} className="group">
-                <p className="font-semibold text-lg group-hover:text-[#0288D1] transition-colors duration-300">
+                <p className="font-semibold text-lg group-hover:text-[#00BCD4] transition-colors duration-300">
                   {item.name}
                 </p>
-                <p className="text-sm md:text-base text-[#0D3B66]/90">
+                <p className="text-sm md:text-base text-gray-400 group-hover:text-gray-200 transition-colors duration-300">
                   {item.desc}
                 </p>
               </li>
