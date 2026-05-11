@@ -18,11 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${sora.variable} bg-[#0B132B] antialiased min-h-screen hide-scrollbar`}
+        className={`${sora.variable} bg-[#0B132B] antialiased min-h-screen hide-scrollbar overflow-x-hidden`}
       >
-        {/* Removed gradient background */}
         <Navbar />
-        <main>{children}</main>
+        <main className="relative">{children}</main>
         <Footer />
       </body>
     </html>
