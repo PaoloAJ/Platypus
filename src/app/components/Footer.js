@@ -4,10 +4,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { MapPin, Mail, Phone } from "lucide-react";
 
 function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  if (pathname?.startsWith("/admin")) return null;
 
   const footerLinks = {
     services: [
@@ -38,7 +42,7 @@ function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1 space-y-6">
             <Link href="/" className="block">
-              <div className="relative w-48 h-14">
+              <div className="relative w-64 h-20">
                 <Image
                   src="/logo.png"
                   alt="Platypus Outdoor Solutions"

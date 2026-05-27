@@ -1,0 +1,41 @@
+[
+  {
+    "id": "lakefront",
+    "title": "Lakefront Restoration",
+    "blurb": "Docks, seawalls, boat lifts and pavers, restored to original condition.",
+    "from": "$650",
+    "bullets": [
+      "Soft-wash, no chemicals",
+      "Sealants included",
+      "Algae & oxidation removal"
+    ],
+    "icon": "anchor",
+    "popular": true
+  },
+  {
+    "id": "house-roof",
+    "title": "House & Roof Soft-Wash",
+    "blurb": "Exterior siding, soffits, roof shingles, and gutters — safely cleaned.",
+    "from": "$450",
+    "bullets": [
+      "No high-pressure damage",
+      "Plant-safe rinse",
+      "12-month no-streak guarantee"
+    ],
+    "icon": "home",
+    "popular": false
+  },
+  {
+    "id": "driveway",
+    "title": "Driveway & Pressure Wash",
+    "blurb": "Concrete, pavers, pool decks and patios — including oil-stain treatment.",
+    "from": "$300",
+    "bullets": [
+      "Same-day for small jobs",
+      "Re-sanding for pavers",
+      "Optional sealer"
+    ],
+    "icon": "spray",
+    "popular": false
+  }
+]

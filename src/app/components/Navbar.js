@@ -1,15 +1,20 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const clickCountRef = useRef(0);
+  const clickTimerRef = useRef(null);
+  const longPressTimerRef = useRef(null);
+  const longPressFiredRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +23,55 @@ function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+      if (longPressTimerRef.current) clearTimeout(longPressTimerRef.current);
+    };
+  }, []);
+
+  if (pathname?.startsWith("/admin")) return null;
+
+  const goToAdmin = () => {
+    clickCountRef.current = 0;
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+    router.push("/admin");
+  };
+
+  const handleLogoClick = (e) => {
+    if (longPressFiredRef.current) {
+      e.preventDefault();
+      longPressFiredRef.current = false;
+      return;
+    }
+    clickCountRef.current += 1;
+    if (clickCountRef.current >= 3) {
+      e.preventDefault();
+      goToAdmin();
+      return;
+    }
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+    clickTimerRef.current = setTimeout(() => {
+      clickCountRef.current = 0;
+    }, 600);
+  };
+
+  const handleLogoPointerDown = () => {
+    longPressFiredRef.current = false;
+    if (longPressTimerRef.current) clearTimeout(longPressTimerRef.current);
+    longPressTimerRef.current = setTimeout(() => {
+      longPressFiredRef.current = true;
+      goToAdmin();
+    }, 800);
+  };
+
+  const cancelLongPress = () => {
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current);
+      longPressTimerRef.current = null;
+    }
+  };
 
   const linkClasses = (path) =>
     `relative transition-all duration-300 hover:text-[#00BCD4] ${
@@ -54,10 +108,18 @@ function Navbar() {
             }`}
           >
             <div className="flex items-center justify-between px-6 py-4">
-              {/* Logo - Left side */}
-              <Link href="/">
+              {/* Logo - Left side (triple-click or long-press → /admin) */}
+              <Link
+                href="/"
+                onClick={handleLogoClick}
+                onPointerDown={handleLogoPointerDown}
+                onPointerUp={cancelLongPress}
+                onPointerLeave={cancelLongPress}
+                onPointerCancel={cancelLongPress}
+                aria-label="Platypus Outdoor Solutions home (triple-click for admin)"
+              >
                 <motion.div
-                  className="relative w-40 h-12 md:w-48 md:h-14"
+                  className="relative w-56 h-16 md:w-72 md:h-20 select-none"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
@@ -66,7 +128,8 @@ function Navbar() {
                     alt="Platypus Outdoor Solutions"
                     fill
                     priority
-                    className="object-contain brightness-0 invert"
+                    className="object-contain brightness-0 invert pointer-events-none"
+                    draggable={false}
                   />
                 </motion.div>
               </Link>

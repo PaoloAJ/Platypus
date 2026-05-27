@@ -3,8 +3,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Hammer, HeartHandshake, Clock, Lightbulb } from "lucide-react";
+import siteData from "@/content/site.json";
 
 const AboutPage = () => {
+  const about = siteData.about;
   const teamMembers = [
     {
       name: "Mike Johnson",
@@ -68,12 +70,10 @@ const AboutPage = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#00BCD4] to-[#4FC3F7] bg-clip-text text-transparent">
-              About Platypus Outdoor Solutions
+              {about.headline}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Transforming outdoor spaces across Central Florida since 2009.
-              We're passionate about creating beautiful, functional outdoor
-              living environments that bring families together.
+              {about.subheadline}
             </p>
           </motion.div>
         </div>
@@ -97,25 +97,9 @@ const AboutPage = () => {
                 Our Story
               </h2>
               <div className="space-y-6 text-gray-300 leading-relaxed">
-                <p>
-                  Founded in 2009 by Mike Johnson, Platypus Outdoor Solutions
-                  began as a small family business with a simple mission: to
-                  help Central Florida families make the most of their outdoor
-                  spaces.
-                </p>
-                <p>
-                  What started as weekend deck projects has grown into a
-                  full-service outdoor construction company, but we've never
-                  lost sight of our core values: quality craftsmanship, honest
-                  communication, and treating every project like it's our own
-                  backyard.
-                </p>
-                <p>
-                  Today, we're proud to have transformed hundreds of outdoor
-                  spaces across Orlando, Apopka, Winter Garden, and surrounding
-                  communities. Each project tells a story, and we're honored to
-                  be part of creating spaces where memories are made.
-                </p>
+                <p>{about.story1}</p>
+                <p>{about.story2}</p>
+                <p>{about.story3}</p>
               </div>
             </motion.div>
 
@@ -130,25 +114,25 @@ const AboutPage = () => {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
                     <div className="text-4xl font-bold text-[#00BCD4] mb-2">
-                      15+
+                      {about.yearsFounded}
                     </div>
                     <div className="text-gray-300">Years Experience</div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold text-[#00BCD4] mb-2">
-                      500+
+                      {about.projectsCount}
                     </div>
                     <div className="text-gray-300">Projects Completed</div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold text-[#00BCD4] mb-2">
-                      100%
+                      {about.satisfaction}
                     </div>
                     <div className="text-gray-300">Customer Satisfaction</div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold text-[#00BCD4] mb-2">
-                      25+
+                      {about.citiesServed}
                     </div>
                     <div className="text-gray-300">Cities Served</div>
                   </div>

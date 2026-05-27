@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "Central Florida · Waterfront restoration",
+    "headlinePart1": "Reclaim your",
+    "headlineHighlight": "waterfront",
+    "headlinePart2": "chemical-free.",
+    "subtext": "Platypus Outdoor Solutions restores docks, seawalls, and lakefront homes across Central Florida — without the harsh chemicals. Most projects complete in under a week.",
+    "primaryCta": "Get my free quote",
+    "secondaryCta": "See 30-second transformation",
+    "rating": "4.9",
+    "reviewCount": "87 reviews",
+    "trustBadge1": "BBB A+ accredited",
+    "trustBadge2": "Licensed & insured since 2018",
+    "trustBadge3": "100+ Florida properties restored"
+  },
+  "scarcity": {
+    "eyebrow": "Booking 3 weeks out",
+    "headline": "Reserve your restoration slot.",
+    "body": "We protect availability — only 4 active projects per crew at a time. Pick a target start week and we'll send a free quote within 24 hours."
+  },
+  "about": {
+    "headline": "About Platypus Outdoor Solutions",
+    "subheadline": "Transforming outdoor spaces across Central Florida since 2009 with quality craftsmanship and innovative design.",
+    "story1": "Founded in 2009 by Mike Johnson, Platypus Outdoor Solutions began as a small family business with a simple mission: to help Central Florida families make the most of their outdoor spaces.",
+    "story2": "What started as weekend deck projects has grown into a full-service outdoor construction company, but we've never lost sight of our core values: quality craftsmanship, honest communication, and treating every project like it's our own backyard.",
+    "story3": "Today, we're proud to have transformed hundreds of outdoor spaces across Orlando, Apopka, Winter Garden, and surrounding communities. Each project tells a story, and we're honored to be part of creating spaces where memories are made.",
+    "yearsFounded": "15+",
+    "projectsCount": "500+",
+    "satisfaction": "100%",
+    "citiesServed": "25+"
+  },
+  "footer": {
+    "tagline": "Family-owned eco-friendly waterfront restoration. Serving Central Florida since 2018.",
+    "licenseNumber": "FL-CCC1234567",
+    "phone": "(407) 555-0100",
+    "email": "hello@platypusoutdoor.com",
+    "hours": "Mon–Sat · 7a–6p"
+  }
+}

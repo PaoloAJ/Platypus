@@ -1,0 +1,59 @@
+[
+  {
+    "id": "lake-mary-dock",
+    "location": "Lake Mary, FL",
+    "scope": "Dock & boat-lift restoration",
+    "duration": "3 days",
+    "quote": "Looks like a brand-new dock. Neighbors keep asking for our guy.",
+    "before": {
+      "src": "/dock1.jpeg",
+      "focalX": 50,
+      "focalY": 50,
+      "zoom": 1
+    },
+    "after": {
+      "src": "/dock2.jpeg",
+      "focalX": 50,
+      "focalY": 50,
+      "zoom": 1
+    }
+  },
+  {
+    "id": "windermere-seawall",
+    "location": "Windermere, FL",
+    "scope": "Concrete seawall + algae",
+    "duration": "2 days",
+    "quote": "Years of algae gone in two days, no harsh smell anywhere.",
+    "before": {
+      "src": "/sidewalk1.jpeg",
+      "focalX": 50,
+      "focalY": 50,
+      "zoom": 1
+    },
+    "after": {
+      "src": "/driveway1.jpeg",
+      "focalX": 50,
+      "focalY": 50,
+      "zoom": 1
+    }
+  },
+  {
+    "id": "winter-park-roof",
+    "location": "Winter Park, FL",
+    "scope": "Roof & exterior soft-wash",
+    "duration": "1 day",
+    "quote": "Curb appeal jumped overnight — buyers noticed at the open house.",
+    "before": {
+      "src": "/backyard1.jpeg",
+      "focalX": 50,
+      "focalY": 50,
+      "zoom": 1
+    },
+    "after": {
+      "src": "/backyard2.jpeg",
+      "focalX": 50,
+      "focalY": 50,
+      "zoom": 1
+    }
+  }
+]

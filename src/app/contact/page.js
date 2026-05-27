@@ -1,127 +1,103 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import Cal, { getCalApi } from "@calcom/embed-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+
+const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK || "your-username/30min";
 
 function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    phone: "",
-    description: "",
-    address: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const { email, phone, description, address } = formData;
-
-    console.log("Form data:", { email, phone, description, address });
-
-    // Form submission logic removed - add your own backend integration here
-    setSubmitted(true);
-  };
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi();
+      cal("ui", {
+        theme: "dark",
+        styles: { branding: { brandColor: "#00BCD4" } },
+        hideEventTypeDetails: false,
+      });
+    })();
+  }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#E0F7FA] via-[#B3E5FC] to-[#81D4FA] px-4 pt-36 pb-20">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6 space-y-6">
-        <h1 className="text-3xl font-bold text-[#01579B] text-center">
-          Get a Quote
-        </h1>
+    <section
+      id="quote"
+      className="relative overflow-hidden pt-36 pb-24 lg:pt-44 lg:pb-32 bg-[#0B132B]"
+    >
+      <div className="absolute inset-0 glow-cyan pointer-events-none" />
 
-        {submitted ? (
-          <p className="text-green-600 text-center font-medium">
-            Thank you! We&apos;ll be in touch shortly.
-          </p>
-        ) : (
-          <form className="space-y-4" onSubmit={handleSubmit}>
+      <div className="max-w-6xl mx-auto px-6 relative">
+        <div
+          className="rounded-[2rem] border border-cyan-brand/25 bg-ink-800/60 backdrop-blur p-8 lg:p-14 relative overflow-hidden"
+          style={{
+            boxShadow:
+              "0 50px 100px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,188,212,0.15)",
+          }}
+        >
+          <div className="absolute -top-32 -right-32 w-[480px] h-[480px] glow-cyan-strong opacity-80 pointer-events-none" />
+
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center relative">
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-semibold text-[#0D47A1] mb-1"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="text-[#0D47A1] w-full px-4 py-2 border border-[#B0BEC5] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00BCD4]"
-                placeholder="you@example.com"
-              />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-brand/10 border border-cyan-brand/30 text-cyan-soft text-[12px] uppercase tracking-eyebrow font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-brand pulse-dot inline-block" />
+                Booking 3 weeks out
+              </div>
+
+              <h1 className="h2 mt-5 max-w-md">Reserve your restoration slot.</h1>
+
+              <p className="body-lg text-fg-mute mt-4 max-w-md">
+                We protect availability — only 4 active projects per crew at a
+                time. Pick a time below and we&apos;ll send a free quote within
+                24 hours.
+              </p>
+
+              <ul className="mt-7 space-y-3 max-w-md">
+                <li className="flex items-start gap-3 text-[14.5px] text-fg">
+                  <ArrowRight className="w-4 h-4 mt-1 text-cyan-brand shrink-0" />
+                  Free estimate in 24 hours — no deposit required.
+                </li>
+                <li className="flex items-start gap-3 text-[14.5px] text-fg">
+                  <ArrowRight className="w-4 h-4 mt-1 text-cyan-brand shrink-0" />
+                  Chemical-free soft-wash and seawall restoration.
+                </li>
+                <li className="flex items-start gap-3 text-[14.5px] text-fg">
+                  <ArrowRight className="w-4 h-4 mt-1 text-cyan-brand shrink-0" />
+                  Family-owned, licensed and insured in Central Florida.
+                </li>
+              </ul>
+
+              <div className="mt-7 text-[12.5px] text-fg-mute flex items-center gap-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-cyan-soft" />
+                No spam. No deposit required. Free estimate in 24h.
+              </div>
             </div>
 
-            <div>
-              <label
-                htmlFor="phone"
-                className="block text-sm font-semibold text-[#0D47A1] mb-1"
-              >
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="text-[#0D47A1] w-full px-4 py-2 border border-[#B0BEC5] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00BCD4]"
-                placeholder="(123) 456-7890"
-              />
+            <div className="rounded-2xl bg-ink-950/70 border border-line p-3 lg:p-4 relative">
+              <div className="flex items-center justify-between mb-3 px-2 pt-1">
+                <div>
+                  <div className="text-[11px] tracking-eyebrow uppercase text-fg-mute font-semibold">
+                    Pick a time
+                  </div>
+                  <div className="text-[18px] font-semibold mt-1">
+                    Get a free quote
+                  </div>
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-xl">
+                <Cal
+                  calLink={CAL_LINK}
+                  style={{
+                    width: "100%",
+                    height: "560px",
+                    overflow: "scroll",
+                  }}
+                  config={{ layout: "month_view", theme: "dark" }}
+                />
+              </div>
             </div>
-
-            <div>
-              <label
-                htmlFor="description"
-                className="block text-sm font-semibold text-[#0D47A1] mb-1"
-              >
-                What do you want done?
-              </label>
-              <textarea
-                id="description"
-                rows="3"
-                value={formData.description}
-                onChange={handleChange}
-                className="text-[#0D47A1] w-full px-4 py-2 border border-[#B0BEC5] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00BCD4]"
-                placeholder="Tell us about the job..."
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="address"
-                className="block text-sm font-semibold text-[#0D47A1] mb-1"
-              >
-                Address{" "}
-                <span className="text-xs text-gray-500">(optional)</span>
-              </label>
-              <input
-                type="text"
-                id="address"
-                value={formData.address}
-                onChange={handleChange}
-                className="text-[#0D47A1] w-full px-4 py-2 border border-[#B0BEC5] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00BCD4]"
-                placeholder="123 Main St, City, State"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#00BCD4] text-white font-semibold py-2 rounded-md hover:bg-[#008BA3] transition"
-            >
-              Submit Request
-            </button>
-          </form>
-        )}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

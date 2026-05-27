@@ -1,0 +1,29 @@
+[
+  {
+    "id": "margaret-sutton",
+    "name": "Margaret Sutton",
+    "loc": "Lake Mary, FL",
+    "stars": 5,
+    "quote": "After 14 years of green seawall, I had given up. Platypus had it looking new in 48 hours. Genuinely kind crew.",
+    "initials": "MS",
+    "tone": "#7DD3FC"
+  },
+  {
+    "id": "david-reyes",
+    "name": "David Reyes",
+    "loc": "Winter Park, FL",
+    "stars": 5,
+    "quote": "They sent a real plan with photos before I paid a cent. No upsells, no surprises. House looks 10 years younger.",
+    "initials": "DR",
+    "tone": "#E5B97D"
+  },
+  {
+    "id": "karen-tom-albright",
+    "name": "Karen & Tom Albright",
+    "loc": "Windermere, FL",
+    "stars": 5,
+    "quote": "We were nervous about chemicals near our garden. Platypus walked us through every product — everything came back greener, not deader.",
+    "initials": "KA",
+    "tone": "#00BCD4"
+  }
+]

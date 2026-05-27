@@ -10,14 +10,17 @@ import {
   Leaf,
   Droplets,
   Home as HomeIcon,
-  Anchor,
-  SprayCan,
   ChevronLeft,
   ChevronRight,
   Handshake,
   ClipboardList,
 } from "lucide-react";
 import LoadingScreen from "./components/LoadingScreen";
+import projectsData from "@/content/projects.json";
+import servicesData from "@/content/services.json";
+import testimonialsData from "@/content/testimonials.json";
+import siteData from "@/content/site.json";
+import { SERVICE_ICONS } from "@/lib/registries";
 
 // ---------------- helpers ----------------
 function useInView(opts = { threshold: 0.15 }) {
@@ -224,23 +227,21 @@ function Hero() {
       <div className="absolute inset-0 glow-cyan pointer-events-none" />
       <div className="max-w-6xl mx-auto px-6 relative">
         <FadeRise>
-          <Eyebrow>Central Florida · Waterfront restoration</Eyebrow>
+          <Eyebrow>{siteData.hero.eyebrow}</Eyebrow>
         </FadeRise>
         <div className="mt-5 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
           <div>
             <FadeRise delay={60}>
               <h1 className="display text-white">
-                Reclaim your
+                {siteData.hero.headlinePart1}
                 <br />
-                <span className="text-[#00BCD4]">waterfront</span> —<br />
-                chemical-free.
+                <span className="text-[#00BCD4]">{siteData.hero.headlineHighlight}</span> —<br />
+                {siteData.hero.headlinePart2}
               </h1>
             </FadeRise>
             <FadeRise delay={140}>
               <p className="body-lg text-[#9CA3AF] mt-6 max-w-lg">
-                Platypus Outdoor Solutions restores docks, seawalls, and
-                lakefront homes across Central Florida — without the harsh
-                chemicals. Most projects complete in under a week.
+                {siteData.hero.subtext}
               </p>
             </FadeRise>
             <FadeRise delay={220}>
@@ -249,14 +250,14 @@ function Hero() {
                   href="/contact"
                   className="btn-cyan rounded-full px-6 py-3.5 font-semibold inline-flex items-center gap-2"
                 >
-                  Get my free quote <ArrowRight className="w-4 h-4" />
+                  {siteData.hero.primaryCta} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/gallery"
                   className="btn-ghost rounded-full px-5 py-3.5 inline-flex items-center gap-2 font-medium"
                 >
                   <Play className="w-4 h-4" />
-                  See 30-second transformation
+                  {siteData.hero.secondaryCta}
                 </Link>
               </div>
             </FadeRise>
@@ -266,23 +267,23 @@ function Hero() {
                 <div className="flex items-center gap-2">
                   <GoogleIcon className="w-5 h-5" />
                   <StarRow value={5} size={14} />
-                  <span className="text-[#EDEDED] font-semibold">4.9</span>
-                  <span>· 87 reviews</span>
+                  <span className="text-[#EDEDED] font-semibold">{siteData.hero.rating}</span>
+                  <span>· {siteData.hero.reviewCount}</span>
                 </div>
                 <div className="w-px h-4 bg-white/10" />
                 <div className="flex items-center gap-2">
                   <BbbIcon className="w-5 h-5" />
-                  <span>BBB A+ accredited</span>
+                  <span>{siteData.hero.trustBadge1}</span>
                 </div>
                 <div className="w-px h-4 bg-white/10" />
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-[#7DD3FC]" />
-                  <span>Licensed & insured since 2018</span>
+                  <span>{siteData.hero.trustBadge2}</span>
                 </div>
                 <div className="w-px h-4 bg-white/10" />
                 <div className="flex items-center gap-2">
                   <Leaf className="w-4 h-4 text-[#7DD3FC]" />
-                  <span>100+ Florida properties restored</span>
+                  <span>{siteData.hero.trustBadge3}</span>
                 </div>
               </div>
             </FadeRise>
@@ -471,137 +472,6 @@ function SocialProof() {
 }
 
 // ---------------- BEFORE/AFTER cards ----------------
-const DockBefore = () => (
-  <svg
-    viewBox="0 0 400 300"
-    preserveAspectRatio="xMidYMid slice"
-    className="absolute inset-0 w-full h-full"
-  >
-    <rect width="400" height="150" fill="#1A2742" />
-    <rect y="150" width="400" height="150" fill="#0E1A2E" />
-    {[30, 90, 150, 210, 270, 330].map((x, i) => (
-      <rect key={i} x={x} y="120" width="12" height="120" fill="#3A2A1A" />
-    ))}
-    <rect x="20" y="115" width="350" height="12" fill="#4A3826" />
-    <rect x="20" y="123" width="350" height="6" fill="#2C5F3A" opacity=".55" />
-    <circle cx="80" cy="80" r="20" fill="#1E3A2A" opacity=".6" />
-    <circle cx="320" cy="75" r="25" fill="#1E3A2A" opacity=".6" />
-  </svg>
-);
-const DockAfter = () => (
-  <svg
-    viewBox="0 0 400 300"
-    preserveAspectRatio="xMidYMid slice"
-    className="absolute inset-0 w-full h-full"
-  >
-    <rect width="400" height="150" fill="#1E3656" />
-    <rect y="150" width="400" height="150" fill="#163455" />
-    {[180, 210, 240, 270].map((y, i) => (
-      <path
-        key={i}
-        d={`M0 ${y} Q100 ${y - 2} 200 ${y} T400 ${y}`}
-        stroke="#7DD3FC"
-        strokeWidth="1"
-        fill="none"
-        opacity=".25"
-      />
-    ))}
-    {[30, 90, 150, 210, 270, 330].map((x, i) => (
-      <rect key={i} x={x} y="120" width="12" height="120" fill="#C9A57A" />
-    ))}
-    <rect x="20" y="115" width="350" height="12" fill="#D9B989" />
-    <circle cx="80" cy="80" r="20" fill="#3A7050" />
-    <circle cx="320" cy="75" r="25" fill="#3A7050" />
-    <circle cx="350" cy="50" r="14" fill="#E5B97D" opacity=".9" />
-  </svg>
-);
-const SeawallBefore = () => (
-  <svg
-    viewBox="0 0 400 300"
-    preserveAspectRatio="xMidYMid slice"
-    className="absolute inset-0 w-full h-full"
-  >
-    <rect width="400" height="180" fill="#1A2742" />
-    <rect y="180" width="400" height="120" fill="#0E1A2E" />
-    <rect x="0" y="160" width="400" height="40" fill="#3A4A66" />
-    <rect x="0" y="160" width="400" height="40" fill="url(#crack)" />
-    <defs>
-      <pattern id="crack" width="60" height="40" patternUnits="userSpaceOnUse">
-        <path
-          d="M0 20 L20 18 L30 30 L60 22"
-          stroke="#0E1A2E"
-          strokeWidth=".8"
-          fill="none"
-        />
-        <circle cx="40" cy="15" r="2" fill="#1F1A12" opacity=".7" />
-      </pattern>
-    </defs>
-    <rect x="0" y="170" width="400" height="8" fill="#2C5F3A" opacity=".7" />
-  </svg>
-);
-const SeawallAfter = () => (
-  <svg
-    viewBox="0 0 400 300"
-    preserveAspectRatio="xMidYMid slice"
-    className="absolute inset-0 w-full h-full"
-  >
-    <rect width="400" height="180" fill="#1E3656" />
-    <rect y="180" width="400" height="120" fill="#163455" />
-    <rect x="0" y="160" width="400" height="40" fill="#9CAEC4" />
-    <rect x="0" y="160" width="400" height="2" fill="#C5D4E5" />
-    {[210, 240, 270].map((y, i) => (
-      <path
-        key={i}
-        d={`M0 ${y} Q80 ${y - 3} 200 ${y} T400 ${y}`}
-        stroke="#7DD3FC"
-        strokeWidth="1"
-        fill="none"
-        opacity=".3"
-      />
-    ))}
-  </svg>
-);
-const RoofBefore = () => (
-  <svg
-    viewBox="0 0 400 300"
-    preserveAspectRatio="xMidYMid slice"
-    className="absolute inset-0 w-full h-full"
-  >
-    <rect width="400" height="120" fill="#1A2742" />
-    <rect y="120" width="400" height="180" fill="#2A3550" />
-    <path d="M50 180 L 200 80 L 350 180 L 350 260 L 50 260 Z" fill="#3E2E1F" />
-    <path
-      d="M50 180 L 200 80 L 350 180 L 350 260 L 50 260 Z"
-      fill="url(#mold)"
-      opacity=".7"
-    />
-    <defs>
-      <pattern id="mold" width="30" height="30" patternUnits="userSpaceOnUse">
-        <circle cx="10" cy="10" r="4" fill="#1F2F1A" opacity=".7" />
-        <circle cx="22" cy="20" r="3" fill="#1A2410" opacity=".6" />
-      </pattern>
-    </defs>
-  </svg>
-);
-const RoofAfter = () => (
-  <svg
-    viewBox="0 0 400 300"
-    preserveAspectRatio="xMidYMid slice"
-    className="absolute inset-0 w-full h-full"
-  >
-    <rect width="400" height="120" fill="#3E5074" />
-    <rect y="120" width="400" height="180" fill="#4D6390" />
-    <path d="M50 180 L 200 80 L 350 180 L 350 260 L 50 260 Z" fill="#7B5A3A" />
-    <path
-      d="M50 180 L 200 80 L 350 180"
-      stroke="#A6824F"
-      strokeWidth="3"
-      fill="none"
-    />
-    <circle cx="350" cy="100" r="18" fill="#E5B97D" opacity=".9" />
-  </svg>
-);
-
 function BASlider({ project }) {
   const [pos, setPos] = useState(50);
   const trackRef = useRef(null);
@@ -696,35 +566,43 @@ function BASlider({ project }) {
   );
 }
 
+function CroppedImage({ src, focalX = 50, focalY = 50, zoom = 1, alt = "" }) {
+  if (!src) {
+    return <div className="absolute inset-0 bg-[#0E1730]" />;
+  }
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="absolute inset-0 w-full h-full object-cover"
+      style={{
+        objectPosition: `${focalX}% ${focalY}%`,
+        transform: zoom !== 1 ? `scale(${zoom})` : undefined,
+        transformOrigin: `${focalX}% ${focalY}%`,
+      }}
+      draggable={false}
+    />
+  );
+}
+
+function makeImageRenderer(image) {
+  const ImageComp = () => (
+    <CroppedImage
+      src={image?.src}
+      focalX={image?.focalX}
+      focalY={image?.focalY}
+      zoom={image?.zoom}
+    />
+  );
+  return ImageComp;
+}
+
 function BeforeAfterSection() {
-  const projects = [
-    {
-      location: "Lake Mary, FL",
-      scope: "Dock & boat-lift restoration",
-      duration: "3 days",
-      quote:
-        "Looks like a brand-new dock. Neighbors keep asking for our guy.",
-      Before: DockBefore,
-      After: DockAfter,
-    },
-    {
-      location: "Windermere, FL",
-      scope: "Concrete seawall + algae",
-      duration: "2 days",
-      quote: "Years of algae gone in two days, no harsh smell anywhere.",
-      Before: SeawallBefore,
-      After: SeawallAfter,
-    },
-    {
-      location: "Winter Park, FL",
-      scope: "Roof & exterior soft-wash",
-      duration: "1 day",
-      quote:
-        "Curb appeal jumped overnight — buyers noticed at the open house.",
-      Before: RoofBefore,
-      After: RoofAfter,
-    },
-  ];
+  const projects = projectsData.map((p) => ({
+    ...p,
+    Before: makeImageRenderer(p.before),
+    After: makeImageRenderer(p.after),
+  }));
 
   return (
     <section id="work" className="py-24 lg:py-28 relative">
@@ -853,45 +731,10 @@ function Process() {
 
 // ---------------- SERVICES ----------------
 function Services() {
-  const services = [
-    {
-      title: "Lakefront Restoration",
-      blurb:
-        "Docks, seawalls, boat lifts and pavers, restored to original condition.",
-      from: "$650",
-      bullets: [
-        "Soft-wash, no chemicals",
-        "Sealants included",
-        "Algae & oxidation removal",
-      ],
-      Icon: Anchor,
-      popular: true,
-    },
-    {
-      title: "House & Roof Soft-Wash",
-      blurb:
-        "Exterior siding, soffits, roof shingles, and gutters — safely cleaned.",
-      from: "$450",
-      bullets: [
-        "No high-pressure damage",
-        "Plant-safe rinse",
-        "12-month no-streak guarantee",
-      ],
-      Icon: HomeIcon,
-    },
-    {
-      title: "Driveway & Pressure Wash",
-      blurb:
-        "Concrete, pavers, pool decks and patios — including oil-stain treatment.",
-      from: "$300",
-      bullets: [
-        "Same-day for small jobs",
-        "Re-sanding for pavers",
-        "Optional sealer",
-      ],
-      Icon: SprayCan,
-    },
-  ];
+  const services = servicesData.map((s) => ({
+    ...s,
+    Icon: SERVICE_ICONS[s.icon] || SERVICE_ICONS.anchor,
+  }));
 
   return (
     <section id="services" className="py-24 lg:py-28">
@@ -986,35 +829,7 @@ function Services() {
 
 // ---------------- TESTIMONIALS ----------------
 function Testimonials() {
-  const reviews = [
-    {
-      name: "Margaret Sutton",
-      loc: "Lake Mary, FL",
-      stars: 5,
-      quote:
-        "After 14 years of green seawall, I had given up. Platypus had it looking new in 48 hours. Genuinely kind crew.",
-      initials: "MS",
-      tone: "#7DD3FC",
-    },
-    {
-      name: "David Reyes",
-      loc: "Winter Park, FL",
-      stars: 5,
-      quote:
-        "They sent a real plan with photos before I paid a cent. No upsells, no surprises. House looks 10 years younger.",
-      initials: "DR",
-      tone: "#E5B97D",
-    },
-    {
-      name: "Karen & Tom Albright",
-      loc: "Windermere, FL",
-      stars: 5,
-      quote:
-        "We were nervous about chemicals near our garden. Platypus walked us through every product — everything came back greener, not deader.",
-      initials: "KA",
-      tone: "#00BCD4",
-    },
-  ];
+  const reviews = testimonialsData;
 
   return (
     <section id="reviews" className="py-24 lg:py-28 relative">
@@ -1101,15 +916,13 @@ function Scarcity() {
               <FadeRise>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00BCD4]/10 border border-[#00BCD4]/30 text-[#7DD3FC] text-[12px] uppercase tracking-eyebrow font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00BCD4] pulse-dot inline-block"></span>
-                  Booking 3 weeks out
+                  {siteData.scarcity.eyebrow}
                 </div>
                 <h2 className="h2 mt-5 max-w-md text-white">
-                  Reserve your restoration slot.
+                  {siteData.scarcity.headline}
                 </h2>
                 <p className="body-lg text-[#9CA3AF] mt-4 max-w-md">
-                  We protect availability — only 4 active projects per crew at
-                  a time. Pick a target start week and we&apos;ll send a free
-                  quote within 24 hours.
+                  {siteData.scarcity.body}
                 </p>
               </FadeRise>
               <FadeRise delay={120}>
