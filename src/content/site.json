@@ -1,22 +1,97 @@
 {
   "hero": {
-    "eyebrow": "Central Florida · Waterfront restoration",
-    "headlinePart1": "Reclaim your",
-    "headlineHighlight": "waterfront",
-    "headlinePart2": "chemical-free.",
-    "subtext": "Platypus Outdoor Solutions restores docks, seawalls, and lakefront homes across Central Florida — without the harsh chemicals. Most projects complete in under a week.",
+    "eyebrow": "Central Florida · Waterfront & Exterior Cleaning",
+    "headlinePart1": "Restore Your",
+    "headlineHighlight": "Waterfront.",
+    "headlinePart2": "Protect Your Property.",
+    "subtext": "Platypus Outdoor Solutions provides shoreline restoration, pressure washing, and exterior cleaning services across Central Florida using eco-conscious, chemical-free methods.",
     "primaryCta": "Get my free quote",
     "secondaryCta": "See 30-second transformation",
-    "rating": "4.9",
-    "reviewCount": "87 reviews",
-    "trustBadge1": "BBB A+ accredited",
+    "rating": "",
+    "reviewCount": "",
+    "trustBadge1": "Google verified business",
     "trustBadge2": "Licensed & insured since 2018",
-    "trustBadge3": "100+ Florida properties restored"
+    "trustBadge3": "100+ Florida properties restored",
+    "demoCaption": "Live demo · drag the slider",
+    "demoLocation": "Lake Mary, FL · 3-day restore",
+    "avgTimelineLabel": "Avg. timeline",
+    "avgTimelineValue": "4.2",
+    "avgTimelineUnit": "days"
+  },
+  "socialProof": {
+    "count": "127",
+    "countLabel": "properties restored this year",
+    "trustHeadline": "Trusted by communities in",
+    "towns": [
+      "Lake Mary",
+      "Winter Park",
+      "Orlando",
+      "Windermere",
+      "Maitland",
+      "Mount Dora",
+      "Celebration",
+      "Heathrow",
+      "Longwood",
+      "Oviedo"
+    ],
+    "publications": ["Orlando Sentinel", "Florida Home", "Lake Living"]
+  },
+  "beforeAfter": {
+    "eyebrow": "Recent transformations",
+    "headlinePart1": "Drag any photo.",
+    "headlinePart2": "See the difference.",
+    "description": "Each restoration is documented before, during and after — so you know exactly what you're paying for."
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "headline": "A simple process, start to finish.",
+    "description": "You stay in control at every step. No surprise invoices, no chemical smells, no contractor disappearing acts.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Free quote",
+        "description": "Send photos or fill out a 60-second form. Estimate within 24 hours.",
+        "icon": "clipboard-list"
+      },
+      {
+        "number": "02",
+        "title": "On-site assessment",
+        "description": "We visit, measure, and walk you through the plan — no obligation.",
+        "icon": "home"
+      },
+      {
+        "number": "03",
+        "title": "Eco-friendly restore",
+        "description": "Soft-wash, sealants, and biodegradable solutions. Most projects in under a week.",
+        "icon": "leaf"
+      },
+      {
+        "number": "04",
+        "title": "Walkthrough & guarantee",
+        "description": "You sign off only when it's right. Backed by our 12-month guarantee.",
+        "icon": "clipboard-check"
+      }
+    ]
+  },
+  "testimonialsSection": {
+    "eyebrow": "What homeowners say",
+    "headlinePart1": "Rated",
+    "rating": "4.9",
+    "ratingMax": "5",
+    "reviewCount": "87",
+    "headlinePart2": "Google reviews."
   },
   "scarcity": {
     "eyebrow": "Booking 3 weeks out",
     "headline": "Reserve your restoration slot.",
-    "body": "We protect availability — only 4 active projects per crew at a time. Pick a target start week and we'll send a free quote within 24 hours."
+    "body": "We protect availability — only 4 active projects per crew at a time. Pick a target start week and we'll send a free quote within 24 hours.",
+    "disclaimer": "No spam. No deposit required. Free estimate in 24h."
+  },
+  "serviceArea": {
+    "eyebrow": "Service area",
+    "headline": "Central Florida waterfront, edge-to-edge.",
+    "description": "From Mount Dora down to Celebration — if it's a Central Florida lake, river or canal, we've cleaned a property on it.",
+    "counties": ["Orange", "Seminole", "Lake", "Osceola", "Volusia"]
   },
   "about": {
     "headline": "About Platypus Outdoor Solutions",
@@ -32,8 +107,8 @@
   "footer": {
     "tagline": "Family-owned eco-friendly waterfront restoration. Serving Central Florida since 2018.",
     "licenseNumber": "FL-CCC1234567",
-    "phone": "(407) 555-0100",
+    "phone": "(321) 209-4121",
     "email": "hello@platypusoutdoor.com",
-    "hours": "Mon–Sat · 7a–6p"
+    "hours": "Open daily · 9a–5p"
   }
 }

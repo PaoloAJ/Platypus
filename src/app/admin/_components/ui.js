@@ -6,20 +6,22 @@ import { Check, Loader2 } from "lucide-react";
 export function PageHeader({ eyebrow, title, description, action }) {
   return (
     <div className="flex items-start justify-between gap-6 mb-8 flex-wrap">
-      <div>
+      <div className="min-w-0">
         {eyebrow && (
-          <div className="text-[11px] tracking-eyebrow uppercase text-[#7DD3FC] font-semibold mb-2">
+          <div className="text-[11px] tracking-[0.14em] uppercase text-[#7DD3FC] font-semibold mb-2">
             {eyebrow}
           </div>
         )}
-        <h1 className="text-[28px] lg:text-[32px] font-bold leading-tight tracking-tight">
+        <h1 className="text-[26px] sm:text-[28px] lg:text-[32px] font-bold leading-tight tracking-tight text-white">
           {title}
         </h1>
         {description && (
-          <p className="text-[#9CA3AF] mt-2 max-w-2xl text-[14.5px]">{description}</p>
+          <p className="text-[#9CA3AF] mt-2.5 max-w-2xl text-[14.5px] leading-relaxed">
+            {description}
+          </p>
         )}
       </div>
-      {action}
+      {action && <div className="shrink-0">{action}</div>}
     </div>
   );
 }
@@ -27,7 +29,7 @@ export function PageHeader({ eyebrow, title, description, action }) {
 export function Card({ children, className = "" }) {
   return (
     <div
-      className={`rounded-2xl border border-[#1F2937] bg-[#1A1F3A]/40 backdrop-blur p-5 lg:p-6 ${className}`}
+      className={`rounded-2xl border border-white/[0.06] bg-[#1A1F3A]/40 backdrop-blur p-5 lg:p-6 ${className}`}
     >
       {children}
     </div>

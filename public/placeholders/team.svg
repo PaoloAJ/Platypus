@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-t" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1F3A"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#bg-t)"/>
+  <g transform="translate(100 88)" fill="none" stroke="#7DD3FC" stroke-width="2" stroke-linecap="round" opacity="0.7">
+    <circle cx="0" cy="-10" r="20"/>
+    <path d="M-30 36 Q 0 14 30 36" fill="rgba(125,211,252,0.08)"/>
+  </g>
+  <text x="100" y="160" text-anchor="middle" fill="#9CA3AF" font-family="Sora, system-ui, sans-serif" font-size="10">Add a photo</text>
+</svg>

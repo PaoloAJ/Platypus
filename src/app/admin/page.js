@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Image as ImageIcon, Wrench, Star, FileText, ArrowRight } from "lucide-react";
+import { Image as ImageIcon, Images, Wrench, Star, Users, FileText, ArrowRight } from "lucide-react";
 import { readContent } from "@/lib/content-store";
 import { PageHeader, Card } from "./_components/ui";
 
@@ -7,18 +7,22 @@ export const dynamic = "force-dynamic";
 
 async function loadCounts() {
   try {
-    const [projects, services, testimonials] = await Promise.all([
+    const [projects, gallery, services, testimonials, team] = await Promise.all([
       readContent("projects"),
+      readContent("gallery"),
       readContent("services"),
       readContent("testimonials"),
+      readContent("team"),
     ]);
     return {
       projects: projects.length,
-      services: services.length,
+      gallery: gallery.length,
+      services: services.homepage?.length ?? 0,
       testimonials: testimonials.length,
+      team: team.length,
     };
   } catch {
-    return { projects: 0, services: 0, testimonials: 0 };
+    return { projects: 0, gallery: 0, services: 0, testimonials: 0, team: 0 };
   }
 }
 
@@ -32,6 +36,14 @@ const TILES = [
     countLabel: "projects",
   },
   {
+    href: "/admin/gallery",
+    icon: Images,
+    title: "Project gallery",
+    blurb: "Manage the photo portfolio shown on /gallery — title, category, image, description.",
+    countKey: "gallery",
+    countLabel: "photos",
+  },
+  {
     href: "/admin/services",
     icon: Wrench,
     title: "Services & pricing",
@@ -43,9 +55,17 @@ const TILES = [
     href: "/admin/testimonials",
     icon: Star,
     title: "Testimonials",
-    blurb: "Add, edit and reorder customer reviews displayed on the homepage.",
+    blurb: "Customer reviews shown on the homepage and the /reviews page.",
     countKey: "testimonials",
     countLabel: "reviews",
+  },
+  {
+    href: "/admin/team",
+    icon: Users,
+    title: "Team",
+    blurb: "Team grid on /about. Section hides on the public site if empty.",
+    countKey: "team",
+    countLabel: "members",
   },
   {
     href: "/admin/site-copy",
@@ -73,16 +93,16 @@ export default async function AdminHome() {
           const count = t.countKey ? counts[t.countKey] : null;
           return (
             <Link key={t.href} href={t.href} className="block group">
-              <Card className="hover:border-[#00BCD4]/50 transition h-full">
+              <Card className="hover:border-[#00BCD4]/40 hover:bg-[#1A1F3A]/60 transition-all duration-300 h-full">
                 <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#00BCD4]/10 border border-[#00BCD4]/30 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-xl bg-[#00BCD4]/10 border border-[#00BCD4]/25 flex items-center justify-center group-hover:bg-[#00BCD4]/15 group-hover:border-[#00BCD4]/40 transition-colors">
                     <Icon className="w-5 h-5 text-[#7DD3FC]" />
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#00BCD4] transition" />
+                  <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-[#00BCD4] group-hover:translate-x-0.5 transition-all" />
                 </div>
-                <h2 className="text-[17px] font-semibold tracking-tight">{t.title}</h2>
+                <h2 className="text-[17px] font-semibold tracking-tight text-white">{t.title}</h2>
                 <p className="text-[#9CA3AF] text-[13.5px] mt-1.5 leading-relaxed">{t.blurb}</p>
-                <div className="mt-4 text-[11.5px] tracking-eyebrow uppercase text-[#6B7280] font-semibold">
+                <div className="mt-4 text-[11.5px] tracking-[0.14em] uppercase text-[#6B7280] font-semibold">
                   {count != null ? `${count} ${t.countLabel}` : t.countLabel}
                 </div>
               </Card>
@@ -91,12 +111,12 @@ export default async function AdminHome() {
         })}
       </div>
 
-      <div className="mt-10 rounded-2xl border border-[#1F2937] bg-[#1A1F3A]/20 p-5 lg:p-6 text-[13.5px] text-[#9CA3AF] leading-relaxed">
-        <div className="text-[11px] tracking-eyebrow uppercase text-[#7DD3FC] font-semibold mb-2">
+      <div className="mt-10 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 lg:p-6 text-[13.5px] text-[#9CA3AF] leading-relaxed">
+        <div className="text-[11px] tracking-[0.14em] uppercase text-[#7DD3FC] font-semibold mb-2">
           Heads up
         </div>
-        This studio writes to JSON files in <code className="text-[#7DD3FC]">src/content/</code>.
-        That works perfectly while running <code className="text-[#7DD3FC]">npm run dev</code> on your machine.
+        This studio writes to JSON files in <code className="text-[#7DD3FC] bg-[#0B132B] px-1.5 py-0.5 rounded text-[12.5px]">src/content/</code>.
+        That works perfectly while running <code className="text-[#7DD3FC] bg-[#0B132B] px-1.5 py-0.5 rounded text-[12.5px]">npm run dev</code> on your machine.
         On a hosted/serverless deploy (Vercel etc.) the filesystem is read-only — you&apos;ll want to
         swap the content store for a database before publishing edits from production.
       </div>

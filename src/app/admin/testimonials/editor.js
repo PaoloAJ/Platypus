@@ -23,6 +23,9 @@ const blank = () => ({
   quote: "",
   initials: "",
   tone: "#7DD3FC",
+  title: "",
+  service: "",
+  date: "",
 });
 
 function initialsFrom(name) {
@@ -41,7 +44,7 @@ export default function TestimonialsEditor({ initial }) {
       type="testimonials"
       eyebrow="Homepage section"
       title="Testimonials"
-      description="Customer reviews shown on the homepage. Keep them short and specific — first names + town read as authentic."
+      description="Customer reviews shown on the homepage and the /reviews page. The homepage uses just the quote, stars and avatar. The /reviews page also shows the optional title, service and date fields if you fill them in."
       initial={initial}
       makeBlank={blank}
       itemSummary={(t) =>
@@ -114,6 +117,30 @@ export default function TestimonialsEditor({ initial }) {
               onChange={(e) => update({ quote: e.target.value })}
               placeholder="After 14 years of green seawall..."
               rows={3}
+            />
+          </Field>
+          <Field
+            label="Short title"
+            hint="Optional. Shows on /reviews above the quote (e.g. 'Years of algae gone in two days')."
+            span={2}
+          >
+            <TextInput
+              value={item.title || ""}
+              onChange={(e) => update({ title: e.target.value })}
+            />
+          </Field>
+          <Field label="Service performed" hint="Optional. Shows on /reviews under the quote.">
+            <TextInput
+              value={item.service || ""}
+              onChange={(e) => update({ service: e.target.value })}
+              placeholder="Lakefront Restoration"
+            />
+          </Field>
+          <Field label="Date label" hint='Optional. Free-form, e.g. "3 weeks ago" or "Jan 2026".'>
+            <TextInput
+              value={item.date || ""}
+              onChange={(e) => update({ date: e.target.value })}
+              placeholder="2 weeks ago"
             />
           </Field>
         </div>

@@ -10,6 +10,7 @@ import {
   Toast,
   useDirtyState,
 } from "./ui";
+import { deleteOrphanedImages } from "./image-cleanup";
 
 export default function ListEditor({
   type,
@@ -21,7 +22,7 @@ export default function ListEditor({
   renderItem,
   itemSummary,
 }) {
-  const { data, setData, setSaved, dirty } = useDirtyState(initial);
+  const { data, setData, saved, setSaved, dirty } = useDirtyState(initial);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState(null);
   const [expanded, setExpanded] = useState(() => new Set(initial.map((i) => i.id)));
@@ -86,8 +87,9 @@ export default function ListEditor({
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error((await res.json()).error || "Save failed");
+      deleteOrphanedImages(saved, data);
       setSaved(data);
-      setToast({ message: "Saved. Refresh the site to see the change.", type: "success" });
+      setToast({ message: "Saved — public site updated.", type: "success" });
     } catch (err) {
       setToast({ message: err.message, type: "error" });
     } finally {
